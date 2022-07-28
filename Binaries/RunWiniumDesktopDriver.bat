@@ -1,0 +1,1 @@
+Winium.Desktop.Driver.exe --port 9898 --log-path "C:\Automation\LOG\LOG_WINIUM_DRIVER.txt" --json-command-output-folder-path "C:\Automation\LOG"

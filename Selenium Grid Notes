@@ -1,0 +1,41 @@
+#Standalone server:
+
+java -jar <selenium grid path> standalone
+
+#Hub node server model:
+
+#1 If local mechine
+	java java -jar <selenium grid jar path> hub
+	java java -jar <selenium grid jar path> node
+#2 If start node from different mecine,
+	java java -jar <selenium grid path> node --detect-drivers true --publish-events tcp://ip address:port_no --subscribe-events tcp://ipaddress:port_no
+
+#Distributed Mode:
+
+#1 Sessions
+	It is used to maintain the session details that which node is running in which mechine
+#Command 
+	java -jar <Selenium grid jar path> sessions
+#2 Event Bus
+	It is used to communicate internally to Every component  
+#Command
+	java -jar <Selenium grid jar path> event-bus
+#3 Session Queue
+	It is used to have in which sessions are pending in this section
+#Command
+	java -jar <Selenium grid jar path> sessionqueue
+#4 Distributor
+	It is used to give command the scripts to execute in the node
+#Command
+	java -jar <Selenium grid jar path> distributor --sessions http://172.17.0.1:5556 --sessionqueue http://172.17.0.1:5559 --bind-bus false
+#5 Router
+	It is used to route the data as where to pass the information in which section
+#Command
+	java -jar <Selenium grid jar path> router --sessions http://172.17.0.1:5556 --distributor http://172.17.0.1:5553 --sessionqueue http://172.17.0.1:5559
+#6 Node
+	It is the end mechine which executes the scripts
+#Command
+	if(local mechine)
+		java -jar <Selenium grid jar path> node
+	if(some other mechine)
+		 java java -jar <selenium grid path> node --detect-drivers true --publish-events tcp://ip address:port_no --subscribe-events tcp://ipaddress:port_no

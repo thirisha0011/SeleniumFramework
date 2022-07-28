@@ -1,0 +1,6 @@
+ssh-keygen -o -t rsa -C "<your email>"
+
+# It will generate a key in the path which will display in command line itself
+# Copy the contents and place in git
+# In git go to settings>SSH and GPG keys>Paste the ssh key
+# Go to the repo and copy the ssh URL to clone the source code 
